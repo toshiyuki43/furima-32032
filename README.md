@@ -47,18 +47,20 @@
 
 ### Association
 
-- belongs_to :room
+- belongs_to :purchase
 - belongs_to :user
 
-## messages テーブル
+## purchase テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     | null: false                    |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
-
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| family_name      | string     | null: false                    |
+| last_name        | string     | null: false                    |
+| family_name_kana | string     | null: false                    |
+| last_name_kana   | string     | null: false                    |
+| credit_card      | references | null: false, foreign_key: true |
 ### Association
 
-- belongs_to :room
-- belongs_to :user
+- has_many:credit_cards
+- belongs_to:user
+- belongs_to:item
