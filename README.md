@@ -16,8 +16,9 @@
 
 ### Association
 
-- has_many :items
-- belongs_to :addresses
+- has_many:purchases
+- has_many:items
+- belongs_to:credit_card
 
 ## items テーブル
 
