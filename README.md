@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| -----------------  | ------ | ----------- |
-| name               | string | null: false |
-| email              | string | null: false |
-| family_name        | string | null: false |
-| last_name          | string | null: false |
-| family_name_kana   | string | null: false |
-| last_name_kana     | string | null: false |
-| date               | string | null: false |
-| encrypted_password | string | null: false |
+| Column             | Type   | Options                  |
+| -----------------  | ------ | ------------------------ |
+| name               | string | null: false              |
+| email              | string | null: false, unique:true |
+| family_name        | string | null: false              |
+| last_name          | string | null: false              |
+| family_name_kana   | string | null: false              |
+| last_name_kana     | string | null: false              |
+| date               | string | null: false              |
+| encrypted_password | string | null: false              |
 
 ### Association
 
@@ -23,8 +23,9 @@
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
 | name                | string     | null: false                    |
+| text                | text       | null: false                    |
 | category_id         | integer    | null: false                    |
-| price               | string     | null: false                    |
+| price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 | shipping_charges_id | integer    | null: false                    |
 | condition_id        | integer    | null: false                    |
@@ -51,14 +52,14 @@
 
 ## address テーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| postal_code   | string  | null: false |
-| prefecture_id | integer | null: false |
-| city_name     | string  | null: false |
-| block_name    | string  | null: false |
-| building_name | string  |             |
-| phone_number  | string  | null: false |
+| Column        | Type        | Options                        |
+| ------------- | ----------- | ------------------------------ |
+| postal_code   | string      | null: false                    |
+| prefecture_id | integer     | null: false                    |
+| city_name     | references  | null: false, foreign_key: true |
+| block_name    | references  | null: false, foreign_key: true |
+| building_name | references  | null: false, foreign_key: true |
+| phone_number  | references  | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :order
+- belongs_to :purchase
