@@ -10,12 +10,12 @@
 | last_name          | string | null: false |
 | family_name_kana   | string | null: false |
 | last_name_kana     | string | null: false |
-| birthday_date      | string | null: false |
+| date               | string | null: false |
 | encrypted_password | string | null: false |
 
 ### Association
 
-- has_many:purchase
+- has_many:purchases
 - has_many:items
 
 ## items テーブル
