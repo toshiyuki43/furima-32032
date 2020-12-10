@@ -10,7 +10,7 @@
 | last_name          | string | null: false              |
 | family_name_kana   | string | null: false              |
 | last_name_kana     | string | null: false              |
-| date               | string | null: false              |
+| birthday           | date   | null: false              |
 | encrypted_password | string | null: false              |
 
 ### Association
@@ -52,14 +52,15 @@
 
 ## address テーブル
 
-| Column        | Type        | Options                        |
-| ------------- | ----------- | ------------------------------ |
-| postal_code   | string      | null: false                    |
-| prefecture_id | integer     | null: false                    |
-| city_name     | references  | null: false, foreign_key: true |
-| block_name    | references  | null: false, foreign_key: true |
-| building_name | references  | null: false, foreign_key: true |
-| phone_number  | references  | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city_name     | string     | null: false                    |
+| block_name    | string     | null: false                    |
+| building_name | string     | null: false                    |
+| phone_number  | string     | null: false                    |
+| purchase      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :purchase
