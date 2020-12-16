@@ -1,0 +1,3 @@
+class OdersController < ApplicationController
+
+end
