@@ -22,7 +22,7 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| name                | string     | null: false                    |
+| title                | string     | null: false                    |
 | text                | text       | null: false                    |
 | category_id         | integer    | null: false                    |
 | price               | integer    | null: false                    |
@@ -35,10 +35,10 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchase
+- has_one :oder
 
 
-## purchase テーブル
+## oder テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -63,4 +63,4 @@
 | purchase      | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :oder
