@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Text is too long (maximum is 1000 characters)')
       end
       it 'priceが299以下だと出品できない' do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than 299')
       end
@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Category is not a number')
       end
       it 'category_idが1だと出品できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Item condition is not a number')
       end
       it 'item_condition_idが1だと出品できない' do
-        @item.item_condition_id = '1'
+        @item.item_condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Item condition must be other than 1')
       end
@@ -75,7 +75,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Shipping charge is not a number')
       end
       it 'shipping_charge_idが1だと出品できない' do
-        @item.shipping_charge_id = '1'
+        @item.shipping_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping charge must be other than 1')
       end
@@ -85,7 +85,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Prefecture is not a number')
       end
       it 'prefecture_idが1だと出品できない' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
@@ -95,7 +95,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Shipping day is not a number')
       end
       it 'shipping_day_idが1だと出品できない' do
-        @item.shipping_day_id = '1'
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
       end
