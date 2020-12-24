@@ -6,9 +6,8 @@ class ItemOrder
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :city_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
     validates :phone_number, format: {with: /\A\d{10}\z|\A\d{11}\z/ , message: "is invalid."}
-    validates :token, :block_name, :item_id, :user_id
+    validates :token, :block_name
   end
-
     validates :prefecture_id, numericality: { other_than: 1 }
 
   def save
