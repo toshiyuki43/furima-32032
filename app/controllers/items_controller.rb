@@ -27,7 +27,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-      if @item.save
+      if @item.valid?
+        @item.save
         redirect_to root_path
       else
         render :new
@@ -50,4 +51,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 end
