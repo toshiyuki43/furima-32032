@@ -14,7 +14,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to action: :index unless current_user.id == @item.user.id && @item.order != nil
+    unless current_user.id !== @item.user_id
+      redirect_to action: :index
+      return
+    end
+    unless @item.buy_record.nil?
+      redirect_to action: :index
+      nil
+    end
   end
 
   def update
@@ -27,7 +34,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-      if @item.save
+      if @item.valid?
+        @item.save
         redirect_to root_path
       else
         render :new
@@ -50,4 +58,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 end
