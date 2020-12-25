@@ -90,6 +90,16 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Item can't be blank")
       end
+      it 'prefecture_idが1だと商品購入することができないこと' do
+        @item_order.prefecture_id = '1'
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include('Prefecture must be other than 1')
+      end
+      it 'phone_numberが英数混合だと購入できない' do
+        @item_order.phone_number = '090t123h456'
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include('Phone number is invalid.')
+      end
     end
   end
 end
